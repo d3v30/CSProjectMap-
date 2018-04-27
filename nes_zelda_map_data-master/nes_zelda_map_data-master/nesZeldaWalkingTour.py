@@ -161,7 +161,7 @@ LINK_WIDTH, LINK_HEIGHT = 16, 16 # constants
 
 # Set up Link walking animation:
 # load each image for the animation frames
-down1 = pygame.image.load('./link_down1.png')
+down1 = pygame.image.load('link_down1.png')
 down2 = pygame.image.load('link_down2.png')
 up1   = pygame.image.load('link_up1.png')
 up2   = pygame.image.load('link_up2.png')
@@ -186,16 +186,6 @@ for i in (UP, DOWN, LEFT, RIGHT):
 
 # The PygConductor object keeps the animations of each direction in sync
 animConductor = pyganim.PygConductor(walkingAnim)
-
-#this website helped me and taught me how to get sound working 
-#https://pythonprogramming.net/adding-sounds-music-pygame/
-
-# i added sound to the game here - devesh 
-# this imports the song to load
-pygame.mixer.music.load('OOT.mp3')
-# now we get the music to play forever 
-pygame.mixer.music.play(-1)
-
 
 
 def loadOverworldTiles():
@@ -225,7 +215,6 @@ def loadOverworldTiles():
     tilesImg = pygame.image.load(os.path.join('overworld_map', 'overworldtiles.png'))
     allOverworldTiles = {}
     i = 0 # the first tile number is 0
-    
     for top in range(0, 8*17, 17):
         for left in range(0, 20*17, 17):
             tileSurf = pygame.Surface((16, 16))
@@ -392,13 +381,10 @@ def main():
         if upKeyPressed or downKeyPressed or leftKeyPressed or rightKeyPressed:
             # let PygAnim draw the correct walking sprite from the animation object
             animConductor.play() # calling play() while the animation objects are already playing is okay; in that case play() is a no-op
+
             # actually move the position of the player
             if DIRECTION == UP:
                 LINK_TOP -= WALKRATE
-                NEW_POS = LINK_TOP-WALKRATE
-# restrict the first area of the water added by Devesh 
-                if ((NEW_POS > 49 and NEW_POS < 53) or (NEW_POS > 64 and NEW_POS < 66) or (NEW_POS > 78 and NEW_POS < 80)):
-                    Print ("Unrestricted Domain! You will drown!")
             if DIRECTION == DOWN:
                 LINK_TOP += WALKRATE
             if DIRECTION == LEFT:
@@ -426,8 +412,6 @@ def main():
         # calculate link's position on the screen
         onScreenLINK_LEFT = (LINK_LEFT - CAMERA_LEFT) * WINDOW_MAGNIFICATION
         onScreenLINK_TOP = (LINK_TOP - CAMERA_TOP) * WINDOW_MAGNIFICATION
-
-        
 
         # if link has moved off the edge of the screen
         didSlide = False
