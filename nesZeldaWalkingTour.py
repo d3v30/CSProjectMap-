@@ -562,3 +562,21 @@ while True:
 	pygame.display.update()
 	CLOCK.tick(FPS)
 	DS.fill(BLACK)
+
+    #this website helped me and taught me how to get sound working
+
+#https://pythonprogramming.net/adding-sounds-music-pygame/
+
+
+
+# i added sound to the game here - devesh 
+
+# this imports the song to load
+
+pygame.mixer.music.load('OOT.mp3')
+
+# now we get the music to play forever 
+
+pygame.mixer.music.play(-1)
+
+
