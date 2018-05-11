@@ -601,4 +601,26 @@ if controller_mode == True:
     InitialButtons = [0,0,0,0,0,0,0,0,0,0,0,0]
 
 
+#added health  bar 
+#https://stackoverflow.com/questions/43404909/how-to-display-health-for-character-in-pygame 
+#https://stackoverflow.com/questions/48035367/python-text-game-health-bar
+#https://www.youtube.com/watch?v=FqIKEW-S8W0
+
+health = 80        # Current Health
+maxHealth = 200    # Max Health
+healthDashes = 20  # Max Displayed dashes
+
+def do_health():
+  dashConvert = int(maxHealth/healthDashes)                         # Get the number to divide by to convert health to dashes (being 10)
+  currentDashes = int(health/dashConvert)                           # Convert health to dash count: 80/10 => 8 dashes
+  remainingHealth = healthDashes - currentDashes                    # Get the health remaining to fill as space => 12 spaces
+
+  healthDisplay = ''.join(['-' for i in range(currentDashes)])      # Convert 8 to 8 dashes as a string:   "--------"
+  remainingDisplay = ''.join([' ' for i in range(remainingHealth)]) # Convert 12 to 12 spaces as a string: "            "
+  percent = str(int((health/maxHealth)*100)) + "%"                  # Get the percent as a whole number:   40%
+
+  print("|" + healthDisplay + remainingDisplay + "|")               # Print out textbased healthbar
+  print("         " + percent)             
+
+
 
