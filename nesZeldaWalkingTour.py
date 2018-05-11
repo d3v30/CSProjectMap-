@@ -27,6 +27,8 @@ NOTE: Currently this program doesn't handle blocking, so you can walk through wa
 import pygame, sys, os, pprint, time, pyganim
 from pygame.locals import *
 
+
+
 """
 world is 16 x 8 rooms, 256 x 88 tiles, 4096 x 1408 pixels
 rooms are 16 x 11 tiles, 256 x 176 pixels (but only the top half of the bottom row of tiles is shown on screen)
@@ -465,7 +467,7 @@ if __name__ == '__main__':
 #https://www.youtube.com/watch?v=0xYzcS_b0ng
 # code.Pylet - Rectangle Based Collisions Detection
 # watch the video here - https://youtu.be/0xYzcS_b0ng
-# Any questions? Just ask!
+
 
 import math, random, sys
 import pygame
@@ -578,5 +580,25 @@ pygame.mixer.music.load('OOT.mp3')
 # now we get the music to play forever 
 
 pygame.mixer.music.play(-1)
+
+# controller
+#https://itch.io/t/198869/lollipop-ninja-released-made-with-python-for-a-48h-gamejam
+#above is the link for the lollipop ninja code
+controller_mode = False
+pygame.joystick.init()
+joystick_count = pygame.joystick.get_count()
+if joystick_count < 0:
+    controller_mode = True
+if controller_mode == True:
+    for i in range(joystick_count):
+        joystick = pygame.joystick.Joystick(i)
+        joystick.init()
+    axes = joystick.get_numaxes()
+    controllerbuttons = joystick.get_numbuttons()
+    #ccozort - sets default controller states
+    Joystick1State = [False,False,False,False]
+    ButtonStates = [0,0,0,0,0,0,0,0,0,0,0,0]
+    InitialButtons = [0,0,0,0,0,0,0,0,0,0,0,0]
+
 
 
