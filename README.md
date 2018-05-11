@@ -20,27 +20,34 @@ Week 4 -
    We also analyzed other projects and games to see how we could make our game better
    
 Week 6 - 
-   We interchanged out the images and put in images of a Centar
+   We interchanged out the images and put in images of a Centar. In addition to adding the images we also did research on how to add ps3 controlls to the game
 
 Week 7 - 
-   We did research on how to add ps3 controlls to the game, unfortunately was not able to succeed in writing the code to enable a ps3 controller to work in our game. However, we were able to add joystick controls. 
+  We continued to do  research on how to add ps3 controlls to the game, unfortunately was not able to succeed in writing the code to enable a ps3 controller to work in our game. However, we were able to add joystick controls. In addition, we did research on adding a health bar and was able to succesfully add a health within the game
   
 Sources:
 https://www.youtube.com/watch?v=0xYzcS_b0ng - retangle based detection collisions
 https://pythonprogramming.net/adding-sounds-music-pygame/ - this is for the sound
 https://itch.io/t/198869/lollipop-ninja-released-made-with-python-for-a-48h-gamejam - joystick controlls
-ps3 controls research -   
-        https://stackoverflow.com/questions/10771470/ps3-controller-driver-uinput-python-somehow
-        https://github.com/urbanzrim/ps3controller/blob/master/ps3controller.py
-        https://www.raspberrypi.org/forums/viewtopic.php?t=131915
-        https://pythonhosted.org/triangula/sixaxis.html
-        https://www.youtube.com/watch?v=v5wignr5kVU
-        https://www.raspberrypi.org/forums/viewtopic.php?t=147234
-        https://www.python.org/dev/peps/pep-0338/
+
+Ps3 controls research:   
+https://stackoverflow.com/questions/10771470/ps3-controller-driver-uinput-python-somehow
+https://github.com/urbanzrim/ps3controller/blob/master/ps3controller.py
+https://www.raspberrypi.org/forums/viewtopic.php?t=131915
+https://pythonhosted.org/triangula/sixaxis.html
+https://www.youtube.com/watch?v=v5wignr5kVU
+https://www.raspberrypi.org/forums/viewtopic.php?t=147234
+https://www.python.org/dev/peps/pep-0338/
+
+Health bar links:
+https://stackoverflow.com/questions/43404909/how-to-display-health-for-character-in-pygame 
+https://stackoverflow.com/questions/48035367/python-text-game-health-bar
+https://www.youtube.com/watch?v=FqIKEW-S8W0
+
 
 
 Biggest Challenge:
-   Our biggest challenege we had to overcome within our project was figuring out the collisions
+   Our biggest challenege we had to overcome within our project was figuring out the collisions and the ps3 controllers.
 
   
   
