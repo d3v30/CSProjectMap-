@@ -353,7 +353,7 @@ def main():
             if (event.type == QUIT) or (event.type == KEYDOWN and event.key == K_ESCAPE):
                 pygame.quit()
                 sys.exit()
-
+# key strokes to get the characters to move 
             elif event.type == KEYDOWN:
                 if event.key == K_UP:
                     upKeyPressed = True
@@ -422,6 +422,7 @@ def main():
             if LINK_LEFT + LINK_WIDTH > WORLD_MAP_WIDTH:
                 LINK_LEFT = WORLD_MAP_WIDTH - LINK_WIDTH
 
+# animconductor only runs while the character is moving to get the fluidity of the character movement on time 
         else:
             # Link is not moving, so pause the walking animation
             # the character will not move if the those specific key values are not pressed
@@ -435,6 +436,7 @@ def main():
         onScreenLINK_LEFT = (LINK_LEFT - CAMERA_LEFT) * WINDOW_MAGNIFICATION
         onScreenLINK_TOP = (LINK_TOP - CAMERA_TOP) * WINDOW_MAGNIFICATION
 
+	# we keep the character on the map and with "100% health"
         # if link has moved off the edge of the screen
         #this prevents the character from being able to go off the edge of the screen
         didSlide = False
@@ -479,7 +481,7 @@ if __name__ == '__main__':
 # code.Pylet - Rectangle Based Collisions Detection
 # watch the video here - https://youtu.be/0xYzcS_b0ng
 
-
+# we import the libraries 
 import math, random, sys
 import pygame
 from pygame.locals import *
@@ -491,6 +493,7 @@ def events():
 			pygame.quit()
 			sys.exit()
 
+#we set dimensions for the room again 
 # define display surface			
 W, H = 1920, 1080
 HW, HH = W / 2, H / 2
@@ -509,6 +512,7 @@ WHITE = (255, 255, 255, 255)
 RED = (255, 0, 0, 255)
 GREEN = (0, 255, 0, 255)
 
+# created the rectangles for the collisions
 class rectangle:
 	def __init__(self, x, y, w, h, id):
 		global WHITE
@@ -582,7 +586,7 @@ while True:
 
 
 
-# i added sound to the game here - devesh 
+# added sound to the game here 
 
 # this imports the song to load
 
@@ -595,6 +599,8 @@ pygame.mixer.music.play(-1)
 # controller
 #https://itch.io/t/198869/lollipop-ninja-released-made-with-python-for-a-48h-gamejam
 #above is the link for the lollipop ninja code
+# however this only works with joystick controller 
+
 controller_mode = False
 pygame.joystick.init()
 joystick_count = pygame.joystick.get_count()
@@ -610,13 +616,16 @@ if controller_mode == True:
     Joystick1State = [False,False,False,False]
     ButtonStates = [0,0,0,0,0,0,0,0,0,0,0,0]
     InitialButtons = [0,0,0,0,0,0,0,0,0,0,0,0]
-
+# we tried to implement a PS3 controller to the game but then the code screwed up so we got rid of it in an effort to salvage our code 
 
 #added health  bar 
 #https://stackoverflow.com/questions/43404909/how-to-display-health-for-character-in-pygame 
 #https://stackoverflow.com/questions/48035367/python-text-game-health-bar
 #https://www.youtube.com/watch?v=FqIKEW-S8W0
 
+# the numeric values for health 
+# originally the idea was for every collision we would subtract 10 hp 
+# didn't have time so that's the next stage 
 health = 80        # Current Health
 maxHealth = 200    # Max Health
 healthDashes = 20  # Max Displayed dashes
@@ -630,6 +639,7 @@ def do_health():
   remainingDisplay = ''.join([' ' for i in range(remainingHealth)]) # Convert 12 to 12 spaces as a string: "            "
   percent = str(int((health/maxHealth)*100)) + "%"                  # Get the percent as a whole number:   40%
 
+# display user value of health to user 
   print("|" + healthDisplay + remainingDisplay + "|")               # Print out textbased healthbar
   print("         " + percent)             
 
