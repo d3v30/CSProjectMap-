@@ -49,9 +49,9 @@ https://www.youtube.com/watch?v=FqIKEW-S8W0
 Biggest Challenge:
    Our biggest challenege we had to overcome within our project was figuring out the collisions and the ps3 controllers. Overall though the ultimate realization was that we couldn't always manipulate the code due to how much small changes you make or break the code. 
    
-Role Breakdown///
-    Spencer Browne - music/sound and implementing the different character sprite///
-    Spencer & Devesh - rectangle based collisons & ps3 remote controller///
+Role Breakdown ///
+    Spencer Browne - music/sound and implementing the different character sprite ///
+    Spencer & Devesh - rectangle based collisons & ps3 remote controller ///
     As a group we all worked togehter in implementing a health bar within the game and researched together 
 
   
