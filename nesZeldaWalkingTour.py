@@ -1,4 +1,6 @@
 """
+
+# code is from https://github.com/asweigart/nes_zelda_map_data/blob/master/nesZeldaWalkingTour.py
 #hi
 NES Zelda Walking Tour
 
@@ -23,12 +25,13 @@ Feel free to email me with any questions about this file: al@inventwithpython.co
 NOTE: Currently this program doesn't handle blocking, so you can walk through walls.
 """
 
-
+#import libraries 
 import pygame, sys, os, pprint, time, pyganim
 from pygame.locals import *
 
 
 
+# this is the map data that is pulled from the files 
 """
 world is 16 x 8 rooms, 256 x 88 tiles, 4096 x 1408 pixels
 rooms are 16 x 11 tiles, 256 x 176 pixels (but only the top half of the bottom row of tiles is shown on screen)
@@ -143,6 +146,7 @@ pygame.init()
 
 mainClock = pygame.time.Clock()
 
+# the dimensions of the screen that is displayed to user 
 ROOM_WIDTH = 256 # size of a single "room" in pixels
 ROOM_HEIGHT = 176 # this is the full room height, but only the top half of the bottom row of tiles is shown on screen.
 
@@ -165,6 +169,7 @@ LINK_WIDTH, LINK_HEIGHT = 16, 16 # constants
 # Set up Link walking animation:
 # load each image for the animation frames
 #after finishing up the map we will then switch the images, and choose our own characters
+# for each image that we have to display when the character moves a new image is loaded in 
 down1 = pygame.image.load('link_down1.png')
 down2 = pygame.image.load('link_down2.png')
 up1   = pygame.image.load('link_up1.png')
@@ -172,6 +177,7 @@ up2   = pygame.image.load('link_up2.png')
 left1 = pygame.image.load('link_left1.png')
 left2 = pygame.image.load('link_left2.png')
 
+#pyganim is a Python Module that allows us to add sprite animations to the game 
 # creating the PygAnimation objects for walking in all directions
 # allows the characters to walk with no limitations 
 walkingAnim = {}
@@ -186,6 +192,7 @@ walkingAnim[RIGHT].makeTransformsPermanent()
 
 # resize the Link images to match the window's magnification
 #we will be using this same concept to make sure our characters are to scale
+# this is important for user experience while playing as the magnifications have to patch for optimal game play
 for i in (UP, DOWN, LEFT, RIGHT):
     walkingAnim[i].scale((LINK_WIDTH * WINDOW_MAGNIFICATION, LINK_HEIGHT * WINDOW_MAGNIFICATION))
     walkingAnim[i].makeTransformsPermanent()
@@ -219,6 +226,8 @@ def loadOverworldTiles():
      etc.
     }
     """
+
+# we create blocks from the original picture to create a "map"
     tilesImg = pygame.image.load(os.path.join('overworld_map', 'overworldtiles.png'))
     allOverworldTiles = {}
     i = 0 # the first tile number is 0
@@ -230,7 +239,7 @@ def loadOverworldTiles():
             i += 1
     return allOverworldTiles
 
-
+# we can then graph out the entire map 
 def loadMapData():
     # Returns a 2D list of list, where mapData[x][y] stores the two-digit hex
     # number of the tile for that location.
@@ -257,7 +266,7 @@ def loadMapData():
 
     return mapData
 
-
+# this reshapes the map to fit the original gameplay experience of Zelda 
 def getRoomSurface(leftPixel, topPixel, mapData, tileData):
     # returns a single 256 x 176 pixel Surface of 16 x 11 tiles (since this is a standard zelda room size)
     leftmostTile = leftPixel // 16
@@ -270,6 +279,8 @@ def getRoomSurface(leftPixel, topPixel, mapData, tileData):
     roomSurf = pygame.transform.scale(roomSurf, (ROOM_WIDTH * WINDOW_MAGNIFICATION, ROOM_HEIGHT * WINDOW_MAGNIFICATION))
     return roomSurf
 
+# we globalize the viewing angle and we shift the map to match the location of the character as it moves 
+# versus when we had the turtle and the turtle would move off screen
 def slideRoomAnimation(slideDirection, mapData, tileData):
     global CAMERA_LEFT, CAMERA_TOP, LINK_LEFT, LINK_TOP
 
