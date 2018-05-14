@@ -45,16 +45,9 @@ https://stackoverflow.com/questions/48035367/python-text-game-health-bar
 https://www.youtube.com/watch?v=FqIKEW-S8W0
 
 
-
-Biggest Challenge:
-   Our biggest challenege we had to overcome within our project was figuring out the collisions and the ps3 controllers. Overall though the ultimate realization was that we couldn't always manipulate the code due to how much small changes you make or break the code. 
+   Our group's goal was to get background music and rectanglur based collisions working while also adding our own spin. Despite the challenges, we were able to implement background music as well as collisions. Our biggest challenge was to overcome how to implement collisions and the ps3 controllers. Overall the ultimate realization was that we couldn't always manipulate the code due to how much small changes you make or break the code and how the map was a picture vs being an actual map. Through this project, we were able to learn about how code works and is implemented. 
    
 Role Breakdown ///
-    Spencer Browne - music/sound and implementing the different character sprite ///
-    Spencer & Devesh - rectangle based collisons & ps3 remote controller ///
-    As a group we all worked togehter in implementing a health bar within the game and researched together 
-
-  
-  
-  
-  
+    Spencer Browne -  implementing the different character sprite ///
+    Spencer & Devesh - researched and implemented rectangle based collisons, background music, implementing a health bar & remote       
+    control (tried implementing PS3 controller) ///
