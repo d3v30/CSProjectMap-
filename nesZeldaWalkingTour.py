@@ -168,8 +168,10 @@ LINK_WIDTH, LINK_HEIGHT = 16, 16 # constants
 
 # Set up Link walking animation:
 # load each image for the animation frames
-#after finishing up the map we will then switch the images, and choose our own characters
+# after finishing up the map we will then switch the images, and choose our own characters
 # for each image that we have to display when the character moves a new image is loaded in 
+# The reason why the images do not work is that they are not the same size as the pictures before 
+# Browne please fix the images and re-upload them so that we are good to go 
 down1 = pygame.image.load('link_down1.png')
 down2 = pygame.image.load('link_down2.png')
 up1   = pygame.image.load('link_up1.png')
