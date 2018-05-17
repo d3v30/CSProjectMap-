@@ -172,6 +172,8 @@ LINK_WIDTH, LINK_HEIGHT = 16, 16 # constants
 # for each image that we have to display when the character moves a new image is loaded in 
 # The reason why the images do not work is that they are not the same size as the pictures before 
 # Browne please fix the images and re-upload them so that we are good to go 
+# i found that the images i uploaded did not fit the size in line 166 so i deleted the images and then remade them into the right ratio and then uploaded them. The code still wont run with the images being 16x16 
+
 down1 = pygame.image.load('link_down1.png')
 down2 = pygame.image.load('link_down2.png')
 up1   = pygame.image.load('link_up1.png')
